@@ -68,9 +68,13 @@ const range = [1, 5, 10, 15, 20, 25, 30];
 range;
 
 
-range.splice(3,3); // pierwsza cyfra to indeks, od którego zaczynamy
+range.splice(2,3); // pierwsza cyfra to indeks, od którego zaczynamy
                     // druga to liczba elementów do usunięcia
 range;
+
+
+
+
 
 const rangeSlice = [3, 6, 9, 12, 15, 18, 21];
 rangeSlice;
@@ -78,5 +82,5 @@ rangeSlice.slice(2,3);  // nic się nie dzieje, bo trzeba pobrać dane
                         // do nowej tablicy, np. fragment - oryginalna
                         // zostaje, a my pracujemy na kopii
 rangeSlice;
-const fragment = rangeSlice.slice(3,3);
+const fragment = rangeSlice.slice(2,3);
 fragment;
