@@ -13,7 +13,12 @@ sayHello();
     sayHello();
     sayHello();
     
+
+
 // function declaration
+
+    // słowo kluczowe 'function' nazwę funkcji i nawias zawierający
+    // parametry oraz ciało funkcji zapisane w nawiasie klamrowym {}
 function sayHelloTo(user) {
     // parametry to informacje, które przekazujemy do funkcji
     // w postaci zmiennych - tutaj 'user' podane wewnątrz nawiasu
@@ -53,4 +58,33 @@ resultUser = sayHelloTo(nameUser);
 console.log(resultUser);
 
 
+// function expression
+    // tworzymy zmienną i do jej wartości przypisujemy deklarację
+    // funkcji
+
+const add2 = function(arg1, arg2) {
+    return arg1 + arg2;
+}
+
+    // nie podajemy tu nazwy funkcji, więc mamy tu do czynienia z tzw
+    // funkcją anonimową - do takich funkcji przeważnie nie mamy dostępu
+    // po momencie deklaracji, ale tutaj jest inaczej, bo przypisaliśmy
+    // ją do zmiennej 'add2'. Jeśli chemy wywołać tą funkcję to odwołujemy
+    // się do zmiennej 'add2' a następnie przekazuję argumenty. Wynik
+    // możemy zapisać w console.logu i dostajemy tutaj sumę tych liczb:
+
+add2(3,4);
+console.log(add2(3,4));
+
+// w function expression kolejność ma znaczenie - nie możemy wywołać funkcji zanim ją zadeklarujemy - nie występuje tutaj HOISTING - musimy zadbać o kolejność, bo jeśli nie to dostaniemy bład "Cannot access 'add2' before initialization"
+
+console.log(addExample(3,4));
+const addExample = function(arg1, arg2) {
+    return arg1 + arg2;
+}
+// w function expression funkcja nie ma nadanej nazwy i często nie możemy się do niej odwołać, jednak w naszym przypadku przypisaliśmy ją do zmiennej 'add2' i dlatego była dalej dostępna ;)
+
+// w function declaration kolejność nie ma znaczenia i możemy wywoływać funkcję zanim ją zadeklarujemy, bo występuje tutaj HOISTING
+
+// oba sposoby są potrzebne do róznych zastosowań, a które bardziej w jakich okolicznościach dowiemy się z następnych lekcji ;)
 
