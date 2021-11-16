@@ -44,7 +44,9 @@ arr3;
 const arr =[1, 2, 'text', [3, 4, 5], { el: 'value' }];
 arr;
 
-// dodawanie elementów do istniejącej tablicy
+
+
+// * Dodawanie elementów do istniejącej tablicy
 
 arr.push(1);  // wepchnięcie elementu do tablicy - na koniec
 arr;
@@ -53,13 +55,16 @@ arr;
 arr.unshift(2); // dodanie elementu na początku tablicy
 arr;
 
-// ususwanie istniejących elementów z tablicy
+
+
+// * Ususwanie istniejących elementów z tablicy
 
 arr.pop(); // usuwa element z końca tablicy
 arr;
 
 arr.shift(); // usuwa element z początku tablicy
 arr;
+
 
 
 // metoda SPLICE
@@ -71,10 +76,18 @@ range;
 range.splice(2,3); // pierwsza cyfra to indeks, od którego zaczynamy
                     // druga to liczba elementów do usunięcia
 range;
-
-
-
-
+    // aby usunąć ostatni parametr tablicy należy podać jako pierwszy parametr liczbę -1
+range.splice(-1,1);
+range;
+    // aby zmodyfikować tablicę metodą SPLICE - wartości które chcemy dodać podajemy jako kolejne parametry, np aby dodać 9 i 14 zamiast 1 wpisujemy tak (zaczynamy ucinając od 0 indeksu i jeden element, dodajemy podane parametry w miejsce ucinania)
+range.splice(0, 1, 9, 14);
+range;
+range.splice(-2, 1);
+range;
+const range2 = [9, 14, 5, 25];
+range2.splice(-3,2);
+range2;
+// metoda SLICE
 
 const rangeSlice = [3, 6, 9, 12, 15, 18, 21];
 rangeSlice;
@@ -84,3 +97,8 @@ rangeSlice.slice(2,3);  // nic się nie dzieje, bo trzeba pobrać dane
 rangeSlice;
 const fragment = rangeSlice.slice(2,3);
 fragment;
+
+const cutFragment = rangeSlice.slice(-2);
+cutFragment;
+rangeSlice; 
+    // oryginalna tablica w przypadku met. SLICE zostaje nie naruszona
