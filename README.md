@@ -1,15 +1,15 @@
 # Opanuj JavaScript od [Przeprogramowani.pl](https://przeprogramowani.pl/kurs-javascript)
 
-## I. Fundamenty
+## I. Fundamenty języka JavaScript
 
-Wstęp do programowania
-Podstawy pisania skryptów
-Zmienne - var/let/const
-Typy danych
-Instrukcje warunkowe
-Operatory
-Pętle
-Funkcje
+- Wstęp do programowania
+- Podstawy pisania skryptów
+- Zmienne - var/let/const
+- Typy danych
+- Instrukcje warunkowe
+- Operatory
+- Pętle
+- Funkcje
 Tablice
 Metody tablic
 Klasy
