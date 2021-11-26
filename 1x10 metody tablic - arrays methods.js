@@ -23,5 +23,15 @@ function sortAsc() {
 }
     // funkcja .sort() przyjmuje dwa argumenty, czyli oznaczone tu a oraz b. Tak naprawdę to są wartości 'poprzednia' oraz 'następna'. Czyli ten callback wykona się dla każdej pary znajdującej się w  tablicy - a porównanie to będzie odbywało się od końca.
 function sortAsc(prev, next) {
-
+    console.log(prev, next);
+    if (prev > next) {
+        return -1;
     }
+    if (prev === next) {
+        return 0;
+    }
+    if (next > prev) {
+        return 1;
+    }
+}
+console.log(arr.sort(sortAsc));
