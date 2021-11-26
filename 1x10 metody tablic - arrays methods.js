@@ -21,8 +21,27 @@ arr.sort(sortAsc);
 function sortAsc() {
 
 }
-    // funkcja .sort() przyjmuje dwa argumenty, czyli oznaczone tu a oraz b. Tak naprawdę to są wartości 'poprzednia' oraz 'następna'. Czyli ten callback wykona się dla każdej pary znajdującej się w  tablicy - a porównanie to będzie odbywało się od końca.
+    // funkcja .sort() przyjmuje dwa argumenty, czyli oznaczone tu a oraz b. Tak naprawdę to są wartości 'poprzednia' oraz 'następna'. Czyli ten callback wykona się dla każdej pary znajdującej się w  tablicy - a porównanie to będzie odbywało się OD KOŃCA.
 function sortAsc(prev, next) {
+    console.log(prev, next);
+    if (prev > next) {
+        return 1;
+    }
+    if (prev === next) {
+        return 0;
+    }
+    if (next > prev) {
+        return -1;
+    }
+}
+console.log(arr.sort(sortAsc));
+
+
+// Przykład 2 - sprawdzenie
+const arrNext = [ 2, 4, 14, 7, 19, 5];
+
+arrNext.sort(sortNext);
+function sortNext(prev, next) {
     console.log(prev, next);
     if (prev > next) {
         return -1;
@@ -34,4 +53,16 @@ function sortAsc(prev, next) {
         return 1;
     }
 }
-console.log(arr.sort(sortAsc));
+console.log(arrNext.sort(sortNext));
+
+// callback przekazywany do funkcji 'sort' musi wrócić albo 0 (zostawiamy bez zmian), albo wartość dodatnią + (zamieniamy je miejscami), albo wartość ujemną - (zostawiamy bez zmian) = w przypadku sortowania od najmniejszego do największego. W przypadku sortowania od największego do najmniejszego - kiedy wartośc dodatnia to zamieniamy miejscami. 
+
+// KOLEJNY POZIOM: W związku z tym, że porównujemy tu pary liczb to możemy uprościć cały zapis wykonując odejmowanie. Możemy odjąc poprzednią wartość od następnej i na tym zakończyć działanie naszej funkcji - sortowanie działa poprawnie, a jeśli chcielbyśmy odwrócić kolejność to wystarczy odwrócić kolejność odejmowania:
+
+const arrLevel = [5, 7, 12, 8, 3];
+function sortAsc (prev, next) {
+    return prev - next;
+}
+
+arrLevel.sort(sortAsc);
+console.log(arrLevel.sort(sortAsc));
