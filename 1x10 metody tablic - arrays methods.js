@@ -57,12 +57,56 @@ console.log(arrNext.sort(sortNext));
 
 // callback przekazywany do funkcji 'sort' musi wrócić albo 0 (zostawiamy bez zmian), albo wartość dodatnią + (zamieniamy je miejscami), albo wartość ujemną - (zostawiamy bez zmian) = w przypadku sortowania od najmniejszego do największego. W przypadku sortowania od największego do najmniejszego - kiedy wartośc dodatnia to zamieniamy miejscami. 
 
-// KOLEJNY POZIOM: W związku z tym, że porównujemy tu pary liczb to możemy uprościć cały zapis wykonując odejmowanie. Możemy odjąc poprzednią wartość od następnej i na tym zakończyć działanie naszej funkcji - sortowanie działa poprawnie, a jeśli chcielbyśmy odwrócić kolejność to wystarczy odwrócić kolejność odejmowania:
+// KOLEJNY POZIOM: W związku z tym, że porównujemy tu pary liczb to możemy uprościć cały zapis wykonując ODEJMOWANIE. Możemy odjąc poprzednią wartość od następnej i na tym zakończyć działanie naszej funkcji - sortowanie działa poprawnie, a jeśli chcielbyśmy odwrócić kolejność to wystarczy odwrócić kolejność odejmowania:
 
-const arrLevel = [5, 7, 12, 8, 3];
-function sortAsc (prev, next) {
-    return prev - next;
+const arrLevel = [5, 7, 12, 8, 3, 31];
+arrLevel.sort(sortLevel);
+function sortLevel (prev, next) {
+    console.log(prev, next)
+    return next - prev;
 }
+console.log(arrLevel.sort(sortLevel));
 
-arrLevel.sort(sortAsc);
-console.log(arrLevel.sort(sortAsc));
+// możemy nasz callback przekazać bezpośrednio do funkcji, czyli usunąć jego nazwę i mamy wtedy funkcję anonimową, którą przekazujemy
+
+arr.sort(sortAsc);
+function sortAsc(prev, next) {
+    return next- prev;
+}
+console.log(arr.sort(sortAsc));
+
+// w zapisie funkcji strzałkowej (jeśli jest to funkcja jednoliniowa to możemy usunąć słówko kluczowe 'return' i wtedy musimy usunąć nawiasy klamrowe):
+// console.log(arr.sort((prev, next) => prev - next));
+
+
+
+
+//*********  *//*  ***************
+
+// forEach - iteruj po tablicy
+const arrForEach = [5, 18, 10, 3, 15, 21]
+arrForEach.forEach(el => {
+    console.log(el);
+});
+// ta metoda pozwala nam iterować po każdym kolejnym elemencie tablicy. Określenie iterować jest wykorzystywane np w pętlach aby określić proces powtórzenia. W tym przypadku będziemy powtarzać wykonanie tego callbacka dla każdego kolejnego elementu tablicy
+
+// zwykle wykorzystujemy tą metodę, aby móc wykonać jakąś operację z pomocą każdego elementu tablicy. Metoda ForEach sama w sobie w żaden sposób nie modyfikuje naszej tablicy
+
+
+
+// map - iteruj i zwróć wynik dla każdego elementu tablicy
+arr.map(el => {
+    return el + 1;
+});
+console.log(arr.map(el => {
+    return el + 1;
+}));
+
+// metoda map nie modyfikuje oryginalnej tablicy tylko zwraca nową - oznacza to, że wynik jej działania musimy dopisać do zmiennej i do tej zmiennej trafi nowa, zmodyfikowana przez nas tablica:
+arr;
+const mapped = arr.map(el => {
+    return el + 5;
+});
+console.log(mapped);
+console.log(arr);
+// jeśli podejrzymy oryginalną tablicę to zobaczymy, że jej zawartość nie została w żaden sposób zmieniona
