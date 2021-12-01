@@ -1,5 +1,6 @@
 
 
+
 // Funkcje tablic - metody to funkcje, które wykonywane są na obiektach, a tablice są obiektami
 
 const arr = [1, 2, 3, 4, 16, 5];
@@ -78,7 +79,12 @@ console.log(arr.sort(sortAsc));
 // w zapisie funkcji strzałkowej (jeśli jest to funkcja jednoliniowa to możemy usunąć słówko kluczowe 'return' i wtedy musimy usunąć nawiasy klamrowe):
 // console.log(arr.sort((prev, next) => prev - next));
 
+// funkcja strzałkowa - skrócony zapis
 
+arr2 = [5, 1, 6, 4, 3, 2, 77];
+arr2.sort((prev, next) => next - prev);
+
+console.log(arr2.sort((prev, next) => next - prev));
 
 
 //*********  *//*  ***************
