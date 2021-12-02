@@ -90,16 +90,17 @@ console.log(arr2.sort((prev, next) => next - prev));
 //*********  *//*  ***************
 
 // forEach - iteruj po tablicy
-const arrForEach = [5, 18, 10, 3, 15, 21]
-arrForEach.forEach(el => {
+const arr3 = [5, 18, 10, 3, 15, 21]
+arr3.forEach(el => {
     console.log(el);
+    return el + 2;
 });
 // ta metoda pozwala nam iterować po każdym kolejnym elemencie tablicy. Określenie iterować jest wykorzystywane np w pętlach aby określić proces powtórzenia. W tym przypadku będziemy powtarzać wykonanie tego callbacka dla każdego kolejnego elementu tablicy
 
 // zwykle wykorzystujemy tą metodę, aby móc wykonać jakąś operację z pomocą każdego elementu tablicy. Metoda ForEach sama w sobie w żaden sposób nie modyfikuje naszej tablicy
 
 
-
+// *******************
 // map - iteruj i zwróć wynik dla każdego elementu tablicy
 arr.map(el => {
     return el + 1;
@@ -107,6 +108,9 @@ arr.map(el => {
 console.log(arr.map(el => {
     return el + 1;
 }));
+// Wartość zwrócona przez callback zastąpi aktualny element naszej tablicy,
+
+// dochodzi tutaj do mapowanie tablicy 
 
 // metoda map nie modyfikuje oryginalnej tablicy tylko zwraca nową - oznacza to, że wynik jej działania musimy dopisać do zmiennej i do tej zmiennej trafi nowa, zmodyfikowana przez nas tablica:
 arr;
@@ -115,4 +119,47 @@ const mapped = arr.map(el => {
 });
 console.log(mapped);
 console.log(arr);
-// jeśli podejrzymy oryginalną tablicę to zobaczymy, że jej zawartość nie została w żaden sposób zmieniona
+// jeśli podejrzymy oryginalną tablicę to zobaczymy, że jej zawartość nie została w żaden sposób zmieniona (mapowanie naszej tablicy)
+
+// ******************
+// metoda REDUCE - obliczenie pojedyńczej wartości dla wszystkich elementów tablicy - wykonując metodę reduce na tablicy otrzymujemy jedną wartość, która w tym przypadku trafi do zmiennej 'sum'. Metoda ta analogicznie do poprzednich przyjmuje jako argument callback, który z kolei przyjmuje następujące elementy:
+    // total - zawiera bieżący wynik naszej metody
+    // item - wskazuje na bieżący element naszej tablicy
+    // index - wskazuje na jego index
+    // array - nasza tablica, w niektórych przypadkach obecność tego argumentu jest pomocna
+
+const sum = arr.reduce((total, item, index, array) => {
+    return total += item;
+}, 0);
+    // jako drugi argument podajemy początkową wartość dla zmienniej 'total' - w naszym przypadku 0 (zero)
+sum;
+console.log(sum);
+    // jest to suma wartości elementów przechowywanej w naszej tablicy
+
+    // możemy tez ustawić mnożenie *= , z tym, że drugim argumentem metody reduce (wartością początkową) musi być 1 (bo nie mnożymy przez zero - przecież ;D ) - otrzymamy wtedy iloczyn elementów naszej tablicy
+
+const ratio = arr.reduce((total, item, index, array) => {
+    return total *= item;
+})
+ratio;
+
+    // drugim argumentem może być też pusta tablica - dzięki temu możemy otrzymać nową tablicę zawierającą wszystkie elementy dotychczasowej tablicy, która zostanie zwrócona (total) oraz bieżący element, który możemy zmodyfikować np. mnożąc jego wartość razy 2. Korzystamy tu z operatora spread
+    
+arr;
+const newArr = arr.reduce((total, item, index, array) => {
+    return [...total, item * 2];
+}, []);
+newArr;
+
+    // metoda REDUCE nie musi operować na wartościach liczbowych, może też modyfikować zawartość tablicy lub obiektów
+
+
+// **********
+// metoda FILTER - filtruje elementy tablicy na podstawie warunku. Metoda ta oczekuje od przekazanego callbacku, aby zwrócił prawdę lub fałsz - w zależności od tego czy element ma zostać uwzględniony w nowej tablicy czy nie - no bo metoda FILTER podobnie jak 'map' generuje nam nową tablicę, którą możemy zapisać w zmiennej:
+
+const filtered = arr.filter(el => {
+    return el < 4;
+});
+console.log(filtered);
+
+
