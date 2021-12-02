@@ -163,3 +163,57 @@ const filtered = arr.filter(el => {
 console.log(filtered);
 
 
+//**********
+// metoda SPLIT & JOIN
+// split - zamienia ciąg znaków na tablicę 
+const user = 'Adam Gospodarczyk';
+const userDetails = user.split(' ');
+ // podział ciągu znaków w miejscu spacji ' ' tzn ciąg znaków będzie ucinany w tym miejscu i kolejne elementy będą trafiały do tablicy - w efekcie otrzymamy tablicę zawierającą imię i nazwisko:
+console.log(userDetails);
+// gdyby spacji było więcej to kolejne elementy dodawane były by do naszej tablicy - można użyć tej metody np w polu formularza proszącym od podanie imienia i nazwiska
+
+// możemy zamienić odwrotnie: tablicę na ciąg znaków łącząc kolejne elementy wskazanym przez nas znakiem. Np imię i nazwisko łączymy myślnikiem i oraz w przypadku wyniku zmieniami litery na małe ;) 
+const joined = userDetails.join('-').toLowerCase();
+console.log(joined);
+console.log(typeof(joined));
+    // join - zmiana tablicy na ciąg znaków (string)
+
+    // split - zmiana ciągu znaków na tablicę:
+const usersplit = user.split();
+usersplit;
+
+//************** */
+// searching - proste przeszukiwanie elementów tablicy
+// do zaawansowanych przeszukiwań istnieją gotowe biblioteki, które używają tzw. fazi-search (phase-search), czyli możliwość przeszukiwania danych nawet jeśli podamy tylko mały fragment
+const toSearch = ['Adam', 'Przemek', 'Marcin', 'Adam'];
+toSearch.indexOf('Marcin');
+console.log(toSearch.indexOf('Marcin'));
+    // indexOf zwraca nam indeks szukanego elementu w tablicy
+
+toSearch.includes('Adam');
+console.log(toSearch.includes('Adam'));
+    // zwraca nam prawdę lub fałsz, gdy szukany element znajduje się w tablicy
+
+toSearch.find(el => el === 'Adam');
+console.log(toSearch.find(el => el === 'Adam'));
+    // find wyszukuje wartość elementu, który spełnia warunek
+    // find przyjmuje callback, którego rolą jest zwrócenie prawdy lub fałszu
+
+const arr4 = [4, 6, 12, 17, 3, 1, 2];
+arr4.find(el => el < 4);
+console.log(arr4.find(el => el < 4));
+    // metoda find wyszukuje element, który spełnia podany warunek, z tym, że poprzestaje na pierwszym znalezionym wyniku, który spełnia ten warunek
+
+toSearch.findIndex(el => el === 'Adam');
+console.log(toSearch.findIndex(el => el === 'Adam'))
+    // findIndex - zwraca indeks pierwszego elementu, który spełnia warunek
+
+
+//*********** */
+// isArray() - określa czy dana wartość jest tablicą. Wymagana ze względu na to, że jeśli wykorzystamy operator typeof żeby sprawdzić typ przekazywanej wartości to w przypadku tablic otrzymamy 'object'. Wynika to z faktu, że w przypadku JavaScriptu tablice są obiektami. Ale często chcemy wiedzieć, czy obiekt rzeczywiście jest tablicą a nie jakimś innym rodzajem obiektu
+
+const myArray = [];
+console.log(typeof myArray);
+
+console.log(Array.isArray(myArray));
+    // odwołujemy się do klasy Array oraz wykonać na niej metodę isArray() -> otrzymaliśmy true - czyli myArray jest rzeczywiście tablicą ;)
