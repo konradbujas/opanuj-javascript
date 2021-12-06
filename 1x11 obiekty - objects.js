@@ -72,3 +72,50 @@ console.log(user.adress.city);
 delete user.adress;
 console.log(user.adress);
 console.log(user);
+    // odczytując właściwość, która nie istnieje dostajemy 'undefined'
+// console.log(user.orders.count);
+    // ale gdy chcemy odczytać właściwość właściwości, która nie istnieje to dostajemy błąd, który powoduje zatrzymanie całego skryptu ("Cannot read property 'count' of undefined)
+    // jedynym sposobem, aby sobie z tym poradzić jest skorzystanie z instrukcji warunkowych, które najpierw będą sprawdzać czy taka właściwość istnieje, np:
+// if (user && user.orders) {user.orders.count; }
+    // natomiast bardzo szybko tego typu zapis może być bardzo szybko rozbudowany i może utrudnić odczytywanie kodu. Można użyć "nowości" - zwanej 'Optional Chaining'
+
+// console.log(user?.orders?.count);
+
+
+
+
+// Metody obiektów - wbudowane i dostępne domyślnie  w JavaScript
+Object.values(team);
+console.log(Object.values(team));
+    // zwraca właściwości obiektu
+Object.keys(team);
+console.log(Object.keys(team));
+    // zwraca klucze obiektu
+
+// obie metody sprawdzają się kiedy chcemy iterować po właściwościach obiektu:
+
+// iterowanie po obiektach:
+for (value of Object.values(team)) {
+    console.log(value);
+};
+
+for (key of Object.keys(team)) {
+    console.log(key);
+};
+
+console.log(Object.values(team));
+// metoda ENTRIES - zamienia nasz obiekt w specjalną tablicę, po której jesteśmy w stanie iterować i odczytywać kolejno zarówno klucze jak i wartości danej właściwości
+for (const [key, value] of Object.entries(team)) {
+    console.log(value);
+}
+    // destrukturyzacja - czyli [key, value] - to dostęp jednocześnie do klucza oraz wartości danego elementu
+console.log(Object.entries(team));
+    // ta metoda zwraca nam zagnieżdżoną tablicę zawierającą inne tablice, składającą się z dwóch elementów - pierwszy to klucz właściwości oraz wartość. I właśnie te wartości są odczytywane z pomocą destrukturyzacji.
+
+
+
+// metoda FROM_ENTRIES
+// działa dokładnie odwrotnie jak metoda entries, czyli z tablicy buduje obiekt. Jak w przykładzie:
+const arr = Object.entries(team);
+console.log(Object.fromEntries(arr));
+
