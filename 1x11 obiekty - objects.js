@@ -1,4 +1,4 @@
-// Obiekty to kolekcje nieupożądkowanych danych. Obiekt posiada właściwości w postaci par: klucza oraz wartości.
+// Obiekty to kolekcje nieuporządkowanych danych. Obiekt posiada właściwości w postaci par: klucza oraz wartości.
 
 // Obiekt : Samochód
 // Typ: Pojazd
@@ -118,4 +118,19 @@ console.log(Object.entries(team));
 // działa dokładnie odwrotnie jak metoda entries, czyli z tablicy buduje obiekt. Jak w przykładzie:
 const arr = Object.entries(team);
 console.log(Object.fromEntries(arr));
+    // jest to "nowa" metoda, ale pokazuje to, że warto pozostawać na bieżąco bo nigdy nie wiadomo co przyniesie los, a nowe metody znacznie ułatwiają życie ;D
+ 
 
+// FOR IN - pętla służąca do iterowania po obiektach - iteruje po właściwościach danego obiektu, 
+for (prop in team) {
+    console.log(prop);
+}
+
+// dzięki czemu jesteśmy w stanie odczytywać właściwości w ten sposób:
+for (prop in team) {
+    console.log(team[prop]);
+}
+ // Uwaga na właściwości obiektów nadrzędnych - jest to temat związany z dziedziczeniem oraz prototypami (temat kolejnej lekcji - 1x12)
+
+
+ // tą lekcją kończymy już temat podstaw absolutnych JavaScript i przechodzimy do bardziej złożonych rzeczy ;)
