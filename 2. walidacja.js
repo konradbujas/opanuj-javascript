@@ -26,18 +26,28 @@
 * spełnia tego warunku, funkcja powinna rzucić wyjątek.
 */
 
-let password = "tezxvzvxvdfg";
+let password = "5tezxvzvxvdfg5";
 const specialCharacters = ["!", "@", "#"];
 console.log(specialCharacters);
 
+const hasNumber = (/\d/);
+password = "!@#dfbd1fg";
 console.log(specialCharacters.includes(password));
-console.log(password.match(specialCharacters));
+console.log(password.search(/\d+/));
+console.log(password.match(/'!' ||  '@' || '#'/));
 
 
 
+  console.log(/\d/.test(password));
+  console.log(password.search(/\d/));
+  console.log(password.match(/\d/));
+  console.log(/\d/.exec(password));
+  password = "!@#dfbd4fg";
+  console.log(password.match(/\!\@\#/);
+  console.log(/\!\@\#/.test(password));
 
 function validatePassword(password) {
-    password = "tedfz!zxvg";
+    //password = "tedfz!zvg!";
     
     console.log(password.length)
     if ( password.length > 10) {
@@ -48,7 +58,7 @@ function validatePassword(password) {
         throw new Error ('Password must be longer than 2 characters!') ;
     }
     console.log(password.includes([specialCharacters]))
-    if (![...password].includes('@', '!', "#")) {
+    if (!password.split('').includes(specialCharacters)) {
         throw new Error (`Password must contains one of special characters: ${specialCharacters}`);
     }
 }
