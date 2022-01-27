@@ -92,9 +92,9 @@ console.log(arr2.sort((prev, next) => next - prev));
 // forEach - iteruj po tablicy
 const arr3 = [5, 18, 10, 3, 15, 21]
 arr3.forEach(el => {
-    console.log(el);
-    return el + 2;
+    return (el + 5);
 });
+console.log(arr3);
 // ta metoda pozwala nam iterować po każdym kolejnym elemencie tablicy. Określenie iterować jest wykorzystywane np w pętlach aby określić proces powtórzenia. W tym przypadku będziemy powtarzać wykonanie tego callbacka dla każdego kolejnego elementu tablicy
 
 // zwykle wykorzystujemy tą metodę, aby móc wykonać jakąś operację z pomocą każdego elementu tablicy. Metoda ForEach sama w sobie w żaden sposób nie modyfikuje naszej tablicy
@@ -102,6 +102,7 @@ arr3.forEach(el => {
 
 // *******************
 // map - iteruj i zwróć wynik dla każdego elementu tablicy
+console.log(arr);
 arr.map(el => {
     return el + 1;
 });

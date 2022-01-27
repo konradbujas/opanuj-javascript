@@ -56,7 +56,7 @@ function validatePassword(password) {
     if(typeof password === 'string'){
         return validateLength(password) && hasSpecialCharacters(password) && hasNumber(password);
     } else {
-        throw new Error('Parametr nie jest typu: string');
+        throw new Error(`Parametr (${password}) nie jest typu: string`);
     }
 }
 console.log(validatePassword(password));
