@@ -11,7 +11,10 @@ function shoutMyName(user) {
   // tutaj widzimy jaki jest problem:
   console.log(user);
 
-//console.log('hello').repeat(5);
+
+const sayHello = 'hello! ;) ...';
+console.log(sayHello.repeat(5));
+
 console.log('hello, ...');
 
 console.log('hello, ...');
