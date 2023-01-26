@@ -30,10 +30,12 @@ function sayHelloTo(user) {
     // w momencie wywoływania funkcji możemy przekazać argumenty
     // sayHelloTo('Adam');
 sayHelloTo('Adam');
+console.log(sayHelloTo('Adam'));
     // argument zostaje przekazany do funkcji (do zmiennej 'user')
-    // i wyświetlony w lini 21: return `Cześć ${user}!`; ale
+    // i wyświetlony w lini 26: return `Cześć ${user}!`; ale
     // dalej nic nie widzimy teraz trzeba wywołać funkcję
-    // ale ta wartość zostaje zwrócona w wierszu powyżej - 27
+    // ale ta wartość zostaje zwrócona w wierszu powyżej - 32
+    // i odczytujemy ją w console.log w wierszu - 33
 
 // aby odczytać wartość funkcji możemy utworzyć zmienną result
 const result = sayHelloTo('Krzyś');

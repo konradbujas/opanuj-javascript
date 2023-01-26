@@ -60,14 +60,15 @@ while (j >= 0) {
     // każdym obrotem pętli i będzie wykonywać się tak długo
     // jak długo warunek będzie spełniony
     // + musimy zadbać, by j zmieniało się za każdym obrotem
-    // pętli (j--;) - w tym przypadku postdekrementacja ;)
+    // pętli (j--;) - w tym przypadku postdekrementacja ;) -
+    // inaczej pętla będzie wykonywać się w nieskończoność
 
 
 
 
 
 // Pętla do while (zawsze wykona się przynajmniej raz)
-let t = 0;
+let t = 4;
 do {
     console.log(t);
     t--;
