@@ -10,7 +10,7 @@ console.log(5);
 // dowolną ilość razy
 
 // pętla for
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 15; i++) {
     console.log(i);
 }
     // gdy chcemy policzyć do 500 to wystarczy zmienić wartoś
