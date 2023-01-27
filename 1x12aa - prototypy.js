@@ -24,20 +24,30 @@ Vehicle.prototype.stopEngine = function() {
 
 function Vehicle(name, color) {
     // zmiana obiektu rodzica na prototyp - komentarz linijka 113)
-    const car = Object.create(Vehicle.prototype);
+    // const car = Object.create(Vehicle.prototype);
+        // i usuwamy zgodnie z komentarzem - linia ~143, a słowa 'car' zamieniamy na 'this'
     //const car = {};
-    car.name = name;
-    car.color = color;
-    car.engineStatus = 'off';
+
+    // car.name = name;
+    // car.color = color;
+    // car.engineStatus = 'off';
+        this.name = name;
+        this.color = color;
+        this.engineStatus = 'off';
+
     // car.startEngine = vehicleActions.startEngine;
     // car.stopEngine = vehicleActions.stopEngine;
-    // linia 84 - komentarz
+        // linia 84 - komentarz
     
-    return car; 
+    // return car;
+        // i usuwamy zgodnie z komentarzem - linia ~143 
 }
 
-const car1 = Vehicle('Mustang', 'red');
+const car1 = new Vehicle('Mustang', 'red');
 console.log(car1);
+// słowo kluczowe NEW wykorzystujemy, gdy tworzymy nową instancję obiektu. Czyli w linii 39 i 50:
+// const car1 = Vehicle('Mustang', 'red');
+// const car1 = new Vehicle('Mustang', 'red');
 
 car1.startEngine();
 console.log(car1.engineStatus);
@@ -47,7 +57,7 @@ console.log(car1.engineStatus);
 
 
 
-const car2 = Vehicle('Camaro', 'yellow');
+const car2 = new Vehicle('Camaro', 'yellow');
 console.log(car2);
 console.log(car2.name);
 car2.startEngine();
@@ -133,3 +143,13 @@ console.log(Vehicle.prototype);
 // i właśnie po to są prototypy ;)
 
 // PROTOTYPEM - nazywamy obiekt, który posiada każda funkcja w JavaScripcie i ten obiekt wykorzystywany jest po to, aby dodawać właściwości, które będą dostępne w każdej instancji tej funkcji. Inaczej mówiąc każdy obiekt stworzony na podstawie tej funkcji będzie miał dostęp do tego samego prototypu i to sprawia, że nie powtarzamy sie i oszczędzamy pamięć operacyjną.
+
+
+// NEW
+// słowo kluczowe NEW wykorzystujemy, gdy tworzymy nową instancję obiektu. Czyli w linii 39 i 50:
+// const car1 = Vehicle('Mustang', 'red');
+// const car1 = new Vehicle('Mustang', 'red');
+// możemy wtedy usunąć linię 27
+// const car = Object.create(Vehicle.prototype); ponieważ JS samodzielnie utworzy powiązanie z odpowiednim prototypem oraz zadba o to żeby w miejscu function Vehicle(){return car} zwrócić odpowiedni obiekt. A skoro w tamtym miejscu nie tworzymy już obiektu to słowa car.name -> zamieniamy na -> this.name. W ten sposób otrzymaliśmy w pełni funkcjonalny konstruktor, który powiązany jest z prototypem i na podstawie którego możemy tworzytć nowe obiekty.
+
+// Być może widzisz tutaj podobieństwo do innych języków programowania. Jest to JavaScriptowy odpowiednik klas, ale teraz klasy możemy tworzyć też w inny sposób
