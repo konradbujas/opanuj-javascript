@@ -6,7 +6,7 @@
 
 // Cały JavaScript zbudowany jest w oparciu o obiekty. Mamy możliwość dostępu do domyślnych obiektów jak i tworzenia własnych. Każdy obiekt podlega dziedziczeniu (np. Pojazd to obiekt i Samochód to obiekt dziedziczący z niego).
 
-// tworzenie obiekty
+// tworzenie obiektu
 // z wykorzystaniem nawiasów klamrowych:
 const myObj = {};
 // z wykorzystaniem tzw konstruktora obiektów
@@ -17,10 +17,20 @@ const myObj2 = new Object();
 const team = {
     name: 'Przeprogramowani',// właściwość (klucz: wartość)
     members_count: 3,
-    count() {     // metoda (funkcja)
+    count: function() {     // metoda (funkcja)
         return this.members_count;
-    }    
+        
+    }   
+    // zapis uproszczony
+    // count() {     // metoda (funkcja - zapis uproszczony)
+    //     return this.members_count;
+        
+    // }   
+     
 }
+
+
+// lub w uproszczony sposób
 
 // Dodawanie właściwości
 // 1. z wykorzystaniem kropki - odwoływanie się do właściwości obiektu:
@@ -76,10 +86,12 @@ console.log(user);
 // console.log(user.orders.count);
     // ale gdy chcemy odczytać właściwość właściwości, która nie istnieje to dostajemy błąd, który powoduje zatrzymanie całego skryptu ("Cannot read property 'count' of undefined)
     // jedynym sposobem, aby sobie z tym poradzić jest skorzystanie z instrukcji warunkowych, które najpierw będą sprawdzać czy taka właściwość istnieje, np:
+
 // if (user && user.orders) {user.orders.count; }
+
     // natomiast bardzo szybko tego typu zapis może być bardzo szybko rozbudowany i może utrudnić odczytywanie kodu. Można użyć "nowości" - zwanej 'Optional Chaining'
 
-// console.log(user?.orders?.count);
+console.log(user?.orders?.count);
 
 
 
@@ -107,6 +119,7 @@ console.log(Object.values(team));
 // metoda ENTRIES - zamienia nasz obiekt w specjalną tablicę, po której jesteśmy w stanie iterować i odczytywać kolejno zarówno klucze jak i wartości danej właściwości
 for (const [key, value] of Object.entries(team)) {
     console.log(value);
+    console.log(key);
 }
     // destrukturyzacja - czyli [key, value] - to dostęp jednocześnie do klucza oraz wartości danego elementu
 console.log(Object.entries(team));

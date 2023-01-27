@@ -4,6 +4,7 @@
 // Funkcje tablic - metody to funkcje, które wykonywane są na obiektach, a tablice są obiektami
 
 const arr = [1, 2, 3, 4, 16, 5];
+arr;
 
 // REVERSE - odwrócenie tablicy
 arr.reverse();
