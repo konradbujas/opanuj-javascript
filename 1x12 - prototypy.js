@@ -100,3 +100,32 @@ const vehicleActions = {
 // rozwiązanie w pliku C:\dev\opanuj-javascript\1x12aa - prototypy.js
 
 // powyższe rozwiązanie - działa na problem tworzenia tych samych metod przy tworzeniu kolejnego obiektu, ale rodzi następny: mianowicie za każdym razem, gdy dodajemy nową metodę musimy dodać ją w obu miejscach: vehicleActions oraz Vehicle...
+
+
+
+// object create
+const parentObj = {
+    team: 'Przeprogramowani'            
+};
+//mamy obiekt z jedną właściwością team. Następnie stworzę drugi obiekt - wykorzystując metodę Object.create, do której przekażę ten stworzony obiekt.
+
+const child = Object.create(parentObj);
+
+// otrzymaliśmy nowy obiekt, który jest w pewien sposób połączony z obiektem parentObj. A zadada tego połączenia wygląda następująco: - w momencie jak dodam właściwość do obiektu child - np. name:
+child.name = 'Adam';
+
+console.log(child.name); 
+// to mogę ją teraz odczytać
+
+// natomiast w sytuacji, gdy będę próbował odczytać właściwość team w tym obiekcie, w którym teoretycznie ta właściwość nie istnieje to JavaScript przeszuka również ten obiekt powyżej
+console.log(child.team);
+
+
+// zeby użyć tego w naszej sytuacji robimy: 
+// const car = Object.create(vehicleActions);
+// a linijki: 
+// car.startEngine = vehicleActions.startEngine;
+// car.stopEngine = vehicleActions.stopEngine; 
+// usuwamy, ponieważ i tak, gdy będziemy się do nich odwoływać np w miejscu const car1 = Vehicle('Mustang', 'red'); car1.startEngine();
+// i tak JavaScript będzie wiedział, gdzie szukać ponieważ wskazaliśmy mu to w tej linijce: 
+// const car = Object.create(vehicleActions);
