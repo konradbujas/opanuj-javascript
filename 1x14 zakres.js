@@ -98,3 +98,32 @@ function second() {
 second();
 // console.log(secondValue); // secondValve is not defined
 // W momencie gdy próbujemy odczytać wartość secondValue w zakresie funkcji to JS przeszukuje ten zakres i ją faktycznie znajduje. Skoro ją znajduje to zwraca nam jej wartość
+
+
+// Różnica przy deklarowaniu zmiennych za pomocą let, var i const
+
+// zmienne zadeklarowane słowami kluczowymi let oraz const posiadają zakres blokowy. Oznacza to, że jeśli zadeklaruje zmienną z pomocą var to ta zmienna nie posiada zakresu blokowego, więc będę w stanie odczytać jej wartość również poza blokiem. Inaczej sytuacja wygląda jeśli deklarujemy z pomocą let lub const. Jak widać zmienna other nie jest już dostępna poza blokiem, a ona sama posiada zakres blokowy.
+
+{
+    var foo = 'sth';
+    // let bar = 'other';
+    {
+        let bar = 'other';
+        console.log(bar);
+        console.log(foo);
+    }
+    {
+        let baz = 'baz';
+        console.log(baz);
+        // console.log(bar); // bar is not defined
+
+    }
+
+}
+console.log(foo);
+// console.log(bar); // bar is not defined
+
+// i właśnie sama kwestia zakresu blokowego jest jednym z głównych powodów dlaczego nie warto korzystać w tej chwili ze zmiennych deklarowanych z pomocą var. Po prostu uzyskujemy tutaj większą kontrolę nad tym, gdzie i jakie informacje są dostępne a gdzie nie.
+// Jeśli chodzi o odnajdywanie zmiennych to zakresy blokowe działają dokładnie tak samo jak funkcyjne. Jeżeli zmienną 'bar' umieścimy w zakresie wewnętrznym to będziemy mogli ją odczytać w tym zakresie oraz odczytać zmienną 'foo' z zakresu wyższego. Natomiast w sytuacji, gdy będziemy mieć drugi zakres, w którym będzie znajdować się inna zmienna 'baz' - będziemy w stanie odczytać zmienną 'foo' ponieważ wychodzimy wyżej i odczytujemy ją w zewnętrznym zakresie, natomiast zmienna 'bar' nie będzie dla nas dostępna. Ponieważ przeszukujemy lokalny zakres (linia 116-118), wychodzimy do zewnętrznego, a potem do globalnego i zakres wewnętrzny zmiennej 'bar' zostaje pominięty.
+
+// JS przeszukuje bieżący zakres, wychodzi do zewnętrznego i przechodzi do zewnętrznych tak długo, aż dojdzie do zakresu globalnego i wtedy gdy nie znajdzie zmiennej - to uznaje, że jej nie ma.
