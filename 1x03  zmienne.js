@@ -38,7 +38,7 @@ const email = 'przeprogramowani@gmail.com';
 // deklarowanie zmiennej wygląda dokładnie tak samo, z tą
 // różnicą, że nie możemy nadpisywać wartości zmiennej
 
-email = 'kontakt@przeprogramowani.pl';
+// email = 'kontakt@przeprogramowani.pl';
 
 // błąd informuje nas, że "nie możemy tak robić"
 
