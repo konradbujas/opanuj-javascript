@@ -94,3 +94,39 @@ console.log(typeof kon);
 
 // Ten problem z góry - która deklaracja/przypisanie ma pierwszeństwo można całkowicie wyeliminować używając słów kluczowych LET oraz CONST - od razu wysypie nam się błąd (pluginu quokka.js), że identyfikator 'foo' został już użyty przy deklarowaniu zmiennej. Czyli tego całego zamieszania można całkowicie uniknąć przy stosowaniu let oraz const i jest to kolejny przykład dlaczego należy tak robić
 
+
+// klasy hoisting
+// klasy podlegają podnoszeniu, natomiast działa to dokładnie tak, jak  w przypadku zmiennych deklarowanych z pomocą const oraz let. Czyli jeżeli najpierw mamy deklarację klasy, a dopiero potem jej używamy to wszystko jest w porządku. Natomiast w momencie użycia klasy przed deklaracją - otrzymamy błąd (Person is not defined):
+
+
+// const member = new Person('Adam'); // Person is not defined
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+}
+const member = new Person('Adam');
+console.log(member);
+
+// tak samo sytuacja wyglądała by, gdybyśmy użyli składni class expression:
+// const Person = class {
+//     constructor(name) {
+//         this.name = name;
+//     }
+// }
+// błąd taki sam pojawił by się ponieważ klasa nie jest jeszcze dostępna 
+
+// oczywiście gdyby zamiast const użyć var to oczywiście mieli byśmy błąd, ale zmienna Person miała by wartość 'undefined' (zakomentować Person wyżej ;p )
+
+// const memberVar = new Person('Adam');
+
+console.log(Person);
+
+var Person = class {
+        constructor(name) {
+            this.name = name;
+        }
+    }
+
+// Hoisting polega na wynoszeniu zmiennych na górę ich zakresu. W przypadku zmiennych deklarowanych let i const lub klasami dostęp do nich mamy dopiero wtedy, gdy faktycznie dochodzi do ich utworzenia.
+// Wniosek: Zanim będziesz korzystał z jakiejś zmiennej lub klasy - najpierw upewnij się, że ona istnieje. Lepiej korzystać ze słów const lub let zamiast korzystać z var. Dzięki temu już po raz kolejny będziemy unikać niepotrzebnego komplikowania naszego kodu oraz sytuacji które nie są oczywiste
