@@ -39,8 +39,58 @@ console.log(hoisting);
 // w przypadku wykorzystania słowa kluczowego 'let' zamiast 'var' efekt końcowy jest zasadniczo różny:
 {
     // let hoisting;
-    console.log(hoisting);
+    // console.log(hoisting); // Cannot access 'hoisting' before initialization
     let hoisting = 'hello !';
     console.log(hoisting);
 }
-// jak widać skrypt się nie wykonał i otrzymaliśmy błąd "Cannot access 'hoisting' before initialization"
+// jak widać skrypt się nie wykonał i otrzymaliśmy błąd "Cannot access 'hoisting' before initialization" - próbujemy odczytać zmienną przed inicjalizacją. Zmienne 'let' oraz 'const' co prawda ulegają podnoszeniu, ale ich inicjalizacja zachodzi trochę później. Jest to wyjątek z początku - opóźniona inicjalizacja - przez to nie jesteśmy w stanie ich odczytać zanim te zmienne faktycznie zostaną utworzone. Potocznie mówi się, że w takiej sytuacji zmienne trafiają do tzw. Temporar Dead Zone, chociaż nie jest to oficjalnie powiedziane i niektórzy się sprzeczają, że zmienne deklarowane let i const wcale nie ulegają podnoszeniu - nie mnie to oceniać. Jedyne co musisz wiedzieć to fakt, że nie możesz odczytywać wartości zmiennych deklarowanych przy pomocy let i const zanim te zmienne faktycznie zostaną utworzone.
+
+hoist(); // możemy też wywołać funkcję wcześniej i wszystko działa ok, bo deklaracje funkcji ulegają podnoszeniu (function declaration)
+
+function hoist() {
+    console.log(hoisted);
+    var hoisted = 'go a head !';
+    console.log(hoisted);
+}
+hoist(); // możemy też wywołać funkcję wcześniej
+
+// podnoszeniu ulegają nie tylko zmienne, ale też funkcje i klasy.
+// funkcje możemy deklarować za pomocą function expression - czyli funkcja jest przypisana do zmiennej:
+
+//foo(); // Cannot access 'foo' before initialization
+const foo =  function() {
+    const hoisted = 'function expression value';
+    console.log(hoisted);
+}
+foo();
+// i wtedy gdy spróbujemy ją wywołać wcześniej - u góry - to nie będzie to możliwe - błąd :"Cannot access 'foo' before initialization"
+
+// podstawową różnicą pomiędzy tymi dwoma sposobami tworzenia funkcji jest to, że pierwszy z nich ulega podnoszeniu (function declaration - tak), a drugi nie (function expression - nie)
+
+// mamy funkcję przypisaną do zmiennej i wtedy podnoszeniu ulega zmienna, a nie cała funkcja
+
+// Zainteresować może jeszcze fakt, że : przypisanie zmiennej ma pierwszeństwo przed deklaracją funkcji. Czyli jeżeli zrobimy tak:
+
+var baq = 10;
+
+function baq() {
+    const hoisted = 'baq baq';
+    console.log(hoisted);
+}
+// baq(); // baq is not a function
+console.log(typeof baq);
+// mamy tutaj przypisanie zmiennej 'baq' oraz deklaracje funkcji o tej samej nazwie. W tej sytuacji przypisanie zmiennej ma pierwszeństwo i w typeof 'baq' mamy liczbę i rzeczywiście tak jest.
+// Inaczej było by w sytuacji, gdybyśmy zadeklarowali tylko zmienną np 'kon' (var 'kon');
+
+var kon;
+
+function kon() {
+    const hoisted = 'kon kon';
+    console.log(hoisted);
+}
+kon();
+console.log(typeof kon);
+// mamy tutaj tylko deklarację zmiennej 'kon' oraz deklarację funkcji o tej samej nazwie - w tym przypadku deklaracja funkcji ma pierwszeństwo przed deklaracją zmiennej (a nie przypisaniem - dla jasności ;)) )
+
+// Ten problem z góry - która deklaracja/przypisanie ma pierwszeństwo można całkowicie wyeliminować używając słów kluczowych LET oraz CONST - od razu wysypie nam się błąd (pluginu quokka.js), że identyfikator 'foo' został już użyty przy deklarowaniu zmiennej. Czyli tego całego zamieszania można całkowicie uniknąć przy stosowaniu let oraz const i jest to kolejny przykład dlaczego należy tak robić
+
