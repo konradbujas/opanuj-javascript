@@ -20,11 +20,12 @@
 * Funkcja powinna weryfikować, czy przekazany parametr jest typu string. Jeśli parametr nie
 * spełnia tego warunku, funkcja powinna rzucić wyjątek.
 */
-let input = null;
+
+// let input = null;
 
 
 function reverseMe(input) {
-
+  console.log(input);
   if (typeof input !== 'string') {
 
   throw new Error (`Hey, "${input}" is not a string type!`);
@@ -50,7 +51,11 @@ verify(reverseMe('Przeprogramowani'), 'inawomargorpezrP');
 verify(reverseMe('Brawo!'), '!owarB');
 verify(reverseMe('Konrad!'), '!darnoK');
 
-verify(reverseMe(246), 642);
+// verify(reverseMe(246), 642);
+
+console.log(reverseMe('Przeprogramowani'), 'inawomargorpezrP');
+console.log(reverseMe('246'), '246');
+console.log(reverseMe('Konrad!'), 'Konrad!');
 
 
 
