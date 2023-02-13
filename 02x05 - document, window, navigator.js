@@ -87,3 +87,49 @@ setTimeout(() => {
     window.scrollTo(100, 1500);
     // alert('End Time ;)');
 }, 5000);
+
+
+// Referencje do obiektów
+console.log(window.document);
+console.log(window.navigator);
+
+
+/* NAVIGATOR */
+// Navigator to interfejs reprezentujący tzw "user-agenta" - zbiór informacji o urządzeniu, systemie operacyjnym oraz wersji przeglądarki internetowej
+// Pozwala odwoływać się do fizycznych elementów danego urządzenia takich jak moduł blutooth, kamera czy bateria.
+
+
+// user-agent
+
+const ua = navigator.appVersion
+console.log(ua);
+// informacje związane z tym, jakiego systemu operacyjnego oraz przeglądarki korzysta użytkownik naszej strony.
+
+// preferowane ustawienia języka
+
+const langs = navigator.languages
+console.log(langs);
+
+// Geolokacja
+
+const onGeo = position => {
+    console.log(`${position.coords.latitude.toString()}`);
+    console.log(`${position.coords.longitude.toString()}`);
+}
+const onErr = err => {
+    console.log(err);       
+}
+const options = {
+    enableHighAccuracy: true
+};
+navigator.geolocation.getCurrentPosition(onGeo, onErr, options);
+
+// Dodatkowe API - Mikrofon
+
+navigator.mediaDevices.getUserMedia({audio: true})
+    .then(audioStream => {
+        //...
+    })
+    .catch(err => {
+        //...
+    });
