@@ -34,3 +34,40 @@
 // # ProcessingInstuction - węzły, które są szczególnie popularne w dokumentach typu XML
 
 // # Comment - komentarze
+
+
+// Element
+const paragraph = document.createElement('p');
+paragraph.innerText = 'Cześć!';
+document.body.appendChild(paragraph);
+
+// Komentarz
+const comment = document.createComment('Nie widzisz mnie - komentarz');
+document.body.appendChild(comment);
+
+// Tekst 
+const txt = document.createTextNode("Po prostu tekst")
+document.body.appendChild(txt);
+
+// Atrybut
+
+const attr = document.createAttribute('class');
+attr.value = 'red';
+paragraph.setAttributeNode(attr);
+
+
+// Live DOM Viewer dostępny na stronie: http://bit-ly/dom-viewer - to narzędzie pozwalające zobaczyć jak wybrany fragment kodu HTML przekłada się na strukturę DOM
+
+// Shadow DOM
+// Shadow DOM - to jedna z trzech składowych tzw. Web Components. Dzięki Shadow DOM poszczególne elementy naszego drzewa mogą być izolowane, a ich właściwości ukryte przed światem zewnętrznym.
+
+// dzięki Shadow DOM możemy tworzyć tzw. 'shadow trees' - drzewa, w których przestaje obowiązywać globalna charakterystyka DOM
+
+// każde 'shadow tree' posiada tzw. 'shadow root' - węzeł określający granicę izolacji
+
+// Shadow DOM pozwala tworzyć elementy, które nie będą afektowane przez globalne style umieszczone na danej stronie internetowej i których widoczość możemy ograniczyć
+
+// Light DOM to określenie mające odróżnić standardowy DOM od Shadow DOM - jednak jest to bardziej określenie potoczne
+
+
+// Gdzie Shadow DOM wykorzystywany jest w praktyce

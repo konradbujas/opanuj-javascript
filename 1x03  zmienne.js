@@ -17,16 +17,15 @@ console.log(name);
 var name2;
 name2;
 console.log(name2)
-// zadeklarowana zmienna bez ustawionej wartości domyślnie
-// ma wartość 'undefined'
+// zadeklarowana zmienna bez ustawionej wartości domyślnie ma wartość 'undefined'
 
 
 // let
 let user = 'przeprogramowani';
 // wartość takiej zmiennej możemy również nadpisać j.w.
+
 user = 'overment';
-// ale przy ponownej deklaracji zmiennej z tym samym identyfikatorem
-// i słowem kluczowym 'let' otrzymamy błąd SyntaxError
+// ale przy ponownej deklaracji zmiennej z tym samym identyfikatorem i słowem kluczowym 'let' otrzymamy błąd SyntaxError
 
 // let user = 'nice try.';
 
@@ -35,8 +34,7 @@ user = 'overment';
 
 // const
 const email = 'przeprogramowani@gmail.com';
-// deklarowanie zmiennej wygląda dokładnie tak samo, z tą
-// różnicą, że nie możemy nadpisywać wartości zmiennej
+// deklarowanie zmiennej wygląda dokładnie tak samo, z tą różnicą, że nie możemy nadpisywać wartości zmiennej
 
 // email = 'kontakt@przeprogramowani.pl';
 
@@ -50,12 +48,7 @@ for (var i=0; i < 10; i++) {
 }
 console.log(`Outside loop i = ${i}`);
 
-// użyliśmy tu słowa kluczowego 'var' i zmienna po wykonaniu
-// pętli ma teraz wartość 10, bo pętla wykonała się 9 razy i
-// za każdym razem zwiększaliśmy wartość o 1
-// możemy nie być świadomi, że zmienna była używana w pętli
-// i poza nią ma inną wartość i może to doprowadzić do cichego
-// błędu, o którym nie będziemy mieli pojęcia
+// użyliśmy tu słowa kluczowego 'var' i zmienna po wykonaniu pętli ma teraz wartość 10, bo pętla wykonała się 9 razy i za każdym razem zwiększaliśmy wartość o 1 możemy nie być świadomi, że zmienna była używana w pętli i poza nią ma inną wartość i może to doprowadzić do cichego błędu, o którym nie będziemy mieli pojęcia
 
 // dlatego lepiej zadeklarować zmienną (j) za pomocą let:
 
@@ -64,7 +57,4 @@ for (let j=0; j < 10; j++) {
 }
 console.log(`Outside loop j = ${j}`)
 
-// zmienna zadeklarowana let ma zakres blokowy, czyli nie jest
-// dostępna poza blokiem funkcji ( poza nawiasami {} )
-// nie możemy też użyć const, bo zmienna się zmienia za każdym
-// obrotem pętli
+// zmienna zadeklarowana let ma zakres blokowy, czyli nie jest dostępna poza blokiem funkcji ( poza nawiasami {} ) nie możemy też użyć const, bo zmienna się zmienia za każdym obrotem pętli
