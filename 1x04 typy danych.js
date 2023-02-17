@@ -1,3 +1,22 @@
+// Typy danych
+
+// Typ to rodzaj lub inaczej grupa podobnych danych, na których możemy wykonywać różne operacje.
+// w JS wyróżniamy 6 typów prostych oraz obiekty (SNOBUN):
+// - String
+// - Number
+// - Object
+// - Boolean
+// - undefined
+// - null
+
+// Typowanie statyczne i dynamiczne:
+// Istnieją dwa rodzaje typowania. Statyczne wymaga od nas określenia typu zmiennej a dynamiczne nie.
+// Typowanie statyczne: int x = 1; (typ zmiennej określany na poziomie deklaracji zmiennej)
+// Typowanie dynamiczne: const x = 1 (typ zmiennej określany na podstawie wartości)
+
+// JavaScript jest dynamicznie typowany - typ zmiennej określa na podstawie wartości tej zmiennej.
+
+// JavaScript charakteryzuje też słabe typowanie - oznacza to, że zmienna może zmienić swój typ w trakcie wykonywania programu. Wystarczy, że przypiszemy do niej wartość innego typu. Czyli jeżeli w przypadku tej zmiennej const x = 1 zmienimy jej wartość na ciąg znaków, jej typ zmieni się z 'number' na 'string'.
 
 
 // string
